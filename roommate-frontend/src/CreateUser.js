@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 
 const CreateUser = () => {
@@ -11,6 +13,8 @@ const CreateUser = () => {
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
+    const USER_API_BASE_URL = "http://localhost:8080/api/v1/roommates"
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,16 +22,13 @@ const CreateUser = () => {
 
         setIsPending(true);
 
-        fetch('http://localhost:8001/users', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user)
-
-        }).then(() => {
-            console.log("New user added");
-            setIsPending(false);
-            navigate('/');
-        })
+        //Make POST request to API
+        axios.post(USER_API_BASE_URL, user)
+            .then(() => {
+                console.log("New user added");
+                setIsPending(false);
+                navigate('/');
+            })
     }
 
     return (

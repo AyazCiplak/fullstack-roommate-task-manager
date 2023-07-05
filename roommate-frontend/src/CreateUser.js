@@ -13,7 +13,7 @@ const CreateUser = () => {
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
-    const USER_API_BASE_URL = "http://localhost:8080/api/v1/roommates"
+    const USER_API_BASE_URL = "http://localhost:8080/api/v1/users"
 
 
     const handleSubmit = (e) => {

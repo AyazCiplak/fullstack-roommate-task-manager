@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "roommates")
-public class RoommateEntity {
+@Table(name = "users")
+public class UserEntity {
     // Model for data structure
-    // Auto-generates roommate ID
+    // Auto-generates user ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

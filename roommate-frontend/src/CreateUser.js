@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import UserService from "./UserService"
 
 
 
@@ -13,9 +13,6 @@ const CreateUser = () => {
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
-    const USER_API_BASE_URL = "http://localhost:8080/api/v1/users"
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const user = { name, description };
@@ -23,11 +20,15 @@ const CreateUser = () => {
         setIsPending(true);
 
         //Make POST request to API
-        axios.post(USER_API_BASE_URL, user)
-            .then(() => {
+        UserService.saveUser(user)
+            .then((response) => {
                 console.log("New user added");
+                console.log("Response:" + response)
                 setIsPending(false);
                 navigate('/');
+            })
+            .catch((error) => {
+                console.log(error)
             })
     }
 

@@ -2,6 +2,7 @@ package com.ayaz.roommatesystemapi.controller;
 
 import com.ayaz.roommatesystemapi.model.User;
 import com.ayaz.roommatesystemapi.services.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -24,6 +25,13 @@ public class UserController {
   @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
+    }
+
+   @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        User user = null;
+        user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
     }
 
 }

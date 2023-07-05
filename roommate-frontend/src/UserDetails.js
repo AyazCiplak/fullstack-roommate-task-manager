@@ -5,7 +5,7 @@ import useFetch from './useFetch';
 const UserDetails = () => {
 
     const { id } = useParams();
-    const { data: user, dataPending, error } = useFetch('http://localhost:8001/users/' + id);
+    const { data: user, dataPending, error } = useFetch('http://localhost:8080/api/v1/users/' + id);
     const navigate = useNavigate();
 
     const handleClick = () => {

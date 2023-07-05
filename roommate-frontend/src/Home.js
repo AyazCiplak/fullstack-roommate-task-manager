@@ -2,10 +2,12 @@ import UserList from './UserList';
 import TaskList from './TaskList';
 import useFetch from './useFetch';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 const Home = () => {
 
-    const { data: users, dataPending: usersPending, error: usersError } = useFetch('http://localhost:8001/users')
+    const USER_API_BASE_URL = "http://localhost:8080/api/v1/users"
+    const { data: users, dataPending: usersPending, error: usersError } = useFetch(USER_API_BASE_URL)
     const { data: tasks, dataPending: tasksPending, error: tasksError } = useFetch('http://localhost:8000/tasks')
 
     //Note: && does not display the second element if the first one is false (cannot attempt to display unloaded data)

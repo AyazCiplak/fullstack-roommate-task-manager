@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useFetch from './useFetch';
+import TaskService from './TaskService';
 
 
 
@@ -26,16 +27,16 @@ const CreateTask = () => {
 
         setIsPending(true);
 
-        fetch('http://localhost:8000/tasks', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(task)
-
-        }).then(() => {
-            console.log("New task added");
-            setIsPending(false);
-            navigate('/');
-        })
+        TaskService.saveTask(task)
+            .then((response) => {
+                console.log("New task added");
+                console.log("Response:" + response)
+                setIsPending(false);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (

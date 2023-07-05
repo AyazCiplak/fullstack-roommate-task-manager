@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import useFetch from './useFetch';
-
+import TaskService from './TaskService';
 
 const TaskDetails = () => {
 
@@ -9,11 +9,10 @@ const TaskDetails = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        fetch('http://localhost:8000/tasks/' + id, {
-            method: 'DELETE'
-        }).then(() => {
-            navigate("/");
-        })
+        TaskService.deleteTask(id)
+            .then(() => {
+                navigate("/");
+            })
     };
 
     return (

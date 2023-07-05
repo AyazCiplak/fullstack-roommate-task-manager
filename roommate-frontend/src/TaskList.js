@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import TaskService from './TaskService';
 
 const TaskList = ({ data: tasks }) => {
 
@@ -6,11 +7,10 @@ const TaskList = ({ data: tasks }) => {
 
     //Deletes task, then reloads page to update data (using history.go(0))
     const handleClick = (id) => {
-        fetch('http://localhost:8000/tasks/' + id, {
-            method: 'DELETE'
-        }).then(() => {
-            navigate(0);
-        })
+        TaskService.deleteTask(id)
+            .then(() => {
+                navigate(0);
+            })
     };
 
     return (

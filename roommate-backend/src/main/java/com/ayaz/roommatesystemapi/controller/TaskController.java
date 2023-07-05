@@ -4,6 +4,7 @@ import com.ayaz.roommatesystemapi.model.Task;
 import com.ayaz.roommatesystemapi.model.User;
 import com.ayaz.roommatesystemapi.services.TaskService;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -19,6 +20,11 @@ public class TaskController {
   @PostMapping("/tasks")
   public Task createTask(@RequestBody Task task) {
         return taskService.createTask(task);
+    }
+
+    @GetMapping("/tasks")
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
     }
 
 }

@@ -8,6 +8,7 @@ import com.ayaz.roommatesystemapi.repository.TaskRepository;
 import com.ayaz.roommatesystemapi.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import java.util.List;import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl implements TaskService{
@@ -25,6 +26,22 @@ public class TaskServiceImpl implements TaskService{
         BeanUtils.copyProperties(task, taskEntity);
         taskRepository.save(taskEntity);
         return task;
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+        //Retrieves all tasks in database
+        List<TaskEntity> taskEntities = taskRepository.findAll();
+        List<Task> tasks = taskEntities
+                .stream()
+                .map(task -> new Task(
+                        task.getId(),
+                        task.getTitle(),
+                        task.getDescription(),
+                        task.getResponsible(),
+                        task.getDate()))
+                .collect(Collectors.toList());
+        return tasks;
     }
 
 }

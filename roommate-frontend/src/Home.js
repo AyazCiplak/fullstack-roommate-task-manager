@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 
     const USER_API_BASE_URL = "http://localhost:8080/api/v1/users"
+    const TASK_API_BASE_URL = "http://localhost:8080/api/v1/tasks"
     const { data: users, dataPending: usersPending, error: usersError } = useFetch(USER_API_BASE_URL)
-    const { data: tasks, dataPending: tasksPending, error: tasksError } = useFetch('http://localhost:8000/tasks')
+    const { data: tasks, dataPending: tasksPending, error: tasksError } = useFetch(TASK_API_BASE_URL)
 
     //Note: && does not display the second element if the first one is false (cannot attempt to display unloaded data)
     return (

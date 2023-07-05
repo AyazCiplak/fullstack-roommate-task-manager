@@ -15,13 +15,13 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService roommateService) {
-        this.userService = roommateService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
   @PostMapping("/users")
-    public User createRoommate(@RequestBody User roommate) {
-        return userService.createRoommate(roommate);
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
     }
 
   @GetMapping("/users")
@@ -44,5 +44,7 @@ public class UserController {
         response.put("Deleted successfully", deleted);
         return ResponseEntity.ok(response);
     }
+
+
 
 }

@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createRoommate(User roommate) {
+    public User createUser(User roommate) {
         UserEntity userEntity = new UserEntity();
 
         BeanUtils.copyProperties(roommate, userEntity);

@@ -15,8 +15,10 @@ const CreateTask = () => {
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
+    const USER_API_BASE_URL = "http://localhost:8080/api/v1/users"
+
     //Fetches user data from database
-    const { data: users, dataPending: usersPending, error: usersError } = useFetch('http://localhost:8001/users');
+    const { data: users, dataPending: usersPending, error: usersError } = useFetch(USER_API_BASE_URL);
 
     const handleSubmit = (e) => {
         e.preventDefault();

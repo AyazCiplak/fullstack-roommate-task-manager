@@ -44,4 +44,12 @@ public class TaskServiceImpl implements TaskService{
         return tasks;
     }
 
+    @Override
+    public Task getTaskById(Long id) {
+        TaskEntity taskEntity = taskRepository.findById(id).get();
+        Task task = new Task();
+        BeanUtils.copyProperties(taskEntity, task);
+        return task;
+    }
+
 }

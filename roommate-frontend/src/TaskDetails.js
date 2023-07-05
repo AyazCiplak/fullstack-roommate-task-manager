@@ -5,7 +5,7 @@ import useFetch from './useFetch';
 const TaskDetails = () => {
 
     const { id } = useParams();
-    const { data: task, dataPending, error } = useFetch('http://localhost:8000/tasks/' + id);
+    const { data: task, dataPending, error } = useFetch('http://localhost:8080/api/v1/tasks/' + id);
     const navigate = useNavigate();
 
     const handleClick = () => {

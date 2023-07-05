@@ -1,5 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import useFetch from './useFetch';
+import UserService from './UserService'
 
 
 const UserDetails = () => {
@@ -9,11 +10,10 @@ const UserDetails = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        fetch('http://localhost:8001/users/' + id, {
-            method: 'DELETE'
-        }).then(() => {
-            navigate("/");
-        })
+        UserService.deleteUser(id)
+            .then(() => {
+                navigate("/");
+            })
     };
 
     return (

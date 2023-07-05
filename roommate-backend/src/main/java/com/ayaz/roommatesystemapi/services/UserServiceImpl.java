@@ -47,4 +47,11 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public boolean deleteUser(Long id) {
+        UserEntity user = userRepository.findById(id).get();
+        userRepository.delete(user);
+        return true;
+    }
+
 }

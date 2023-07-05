@@ -4,7 +4,9 @@ import com.ayaz.roommatesystemapi.model.User;
 import com.ayaz.roommatesystemapi.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -27,11 +29,20 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-   @GetMapping("/users/{id}")
+  @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = null;
         user = userService.getUserById(id);
         return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
+        boolean deleted;
+        deleted = userService.deleteUser(id);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("Deleted successfully", deleted);
+        return ResponseEntity.ok(response);
     }
 
 }

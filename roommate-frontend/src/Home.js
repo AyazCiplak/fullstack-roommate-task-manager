@@ -2,7 +2,6 @@ import UserList from './UserList';
 import TaskList from './TaskList';
 import useFetch from './useFetch';
 import { Link } from 'react-router-dom';
-import axios from "axios";
 
 const Home = () => {
 

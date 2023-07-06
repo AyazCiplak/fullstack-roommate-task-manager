@@ -1,11 +1,11 @@
-import Navbar from './Navbar';
-import Home from './Home';
-import CreateTask from './CreateTask';
-import CreateUser from './CreateUser'
-import Settings from './Settings';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import CreateTask from './components/CreateTask';
+import CreateUser from './components/CreateUser';
+import Settings from './components/Settings';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TaskDetails from './TaskDetails';
-import UserDetails from './UserDetails';
+import TaskDetails from './components/TaskDetails';
+import UserDetails from './components/UserDetails';
 
 function App() {
   return (

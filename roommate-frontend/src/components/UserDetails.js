@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import useFetch from './useFetch';
-import UserService from './UserService'
+import useFetch from '../services/useFetch';
+import UserService from '../services/UserService'
 
 
 const UserDetails = () => {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import useFetch from './useFetch';
-import TaskService from './TaskService';
+import useFetch from '../services/useFetch';
+import TaskService from '../services/TaskService';
 
 
 

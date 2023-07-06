@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import TaskService from './TaskService';
+import TaskService from '../services/TaskService';
 
 const TaskList = ({ data: tasks }) => {
 

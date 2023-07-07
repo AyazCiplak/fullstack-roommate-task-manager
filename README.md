@@ -32,7 +32,10 @@ Database structure created in MySQL (screenshot taken on MySQL Workbench):
   - VSCode and Intellij (to write frontend and backend, respectively)
 
 # How to run 
-(todo)
+- Start the backend code through UserSystemApiApplication
+- Start the frontend component with npm start (this should be running on port 3000, else change the @CrossOrigin tags in backend to match port)
 
 # Next steps
-(todo)
+New features to integrate could be: 
+- Enabling user login/authentication
+- Implement proper testing using Jest

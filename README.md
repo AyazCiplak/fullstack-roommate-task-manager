@@ -8,7 +8,7 @@ Full-stack application designed to facilitate delegation of tasks and chores amo
 This application incorporates a Java + Spring backend, connected to a MySQL database. The frontend component is written in React.js, using CSS for styling. REST APIs are defined in the backend and used for interaction between the input in the frontend and the database. 
 
 # Screenshots
-Home page: 
+Homepage: 
 ![image](https://github.com/AyazCiplak/fullstack-roommate-task-manager/assets/97311304/0964974d-9f44-41df-b6e0-5c15ac1263e6)
 
 Task creation form (reached by clicking on the "new" button beside the Tasks header, or by clicking "New Task" on the navbar):
